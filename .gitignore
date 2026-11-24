@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+.venv/
+
+# AWS Lambda layer build artifacts
+lambda_layer/
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables / secrets
+.env
+
+# Editor settings
+.vscode/
