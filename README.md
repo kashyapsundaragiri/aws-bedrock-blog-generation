@@ -124,14 +124,16 @@ curl -X POST https://<api-id>[.execute-api.ap-southeast-2.amazonaws.com/dev/blog
   -d '{"blogtopic": "Machine Learning and Generative AI"}'
 ```
 
-#### Responses
+#### Expected Responses
 
-* **`200 OK`** — Blog generated and uploaded to S3:
+> **Note on Live Execution:** The serverless infrastructure (API Gateway, AWS Lambda with custom `boto3` layer, CloudWatch, and S3) is fully deployed and verified end-to-end. Live Amazon Bedrock model inference (`Converse` API) is currently pending AWS account-level Bedrock access verification (`ValidationException: Operation not allowed`), so the `200 OK` response below reflects the expected output once model invocation is enabled on the account.
+
+* **`200 OK`** *(Expected once Bedrock access is enabled)* — Blog generated and uploaded to S3:
   ```json
   {
     "message": "Blog generated and uploaded to S3 successfully!",
-    "bucket": "kashyap-aws-bedrock-blog-2026",
-    "s3_key": "blog-output/2026-11-24_14-00-00.txt"
+    "bucket": "<your-s3-bucket-name>",
+    "s3_key": "blog-output/<timestamp>.txt"
   }
   ```
 
